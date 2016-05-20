@@ -36,7 +36,8 @@ int main(int argc, char* argv[]) {
     while(ret <= level && ret <= person_num)
         ret += 1;
     // multiplex point;
-    point = points[ret - 1];
+    if (ret >= 2)
+        point = points[ret - 2];
     while (ret != person_num && points[ret] == point)
         ret += 1;
     if (0 == *points.begin())
