@@ -23,7 +23,7 @@ using std::cin;
 using std::endl;
 
 int main(int argc, char* argv[]) {
-    string vowel = "aeiouAEIOU";
+    string vowel = "aeiouyAEIOUY";
     string ret = "";
     string str = "";
     cin >> str;
@@ -32,7 +32,7 @@ int main(int argc, char* argv[]) {
         if (vowel.find(a) == string::npos) {
             ret += '.';
             cout << a << endl;
-	    if (a >= 'A' && a < 'Z') 
+	    if (a >= 'A' && a <= 'Z') 
                 a = a - 'A' + 'a';
                 ret += (a);
 	}
