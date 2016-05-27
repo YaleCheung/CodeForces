@@ -29,5 +29,23 @@ int main(int argc,char * argv[]) {
         cin >> people_num;
 	group_people.push_back(people_num);
     }
-    sort(groupeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+    sort(group_people.begin(), group_people.end());
+
+    auto sum = 0;
+    int ret = 0;
+    for(int i = 0; i < groups_num;) {
+        sum += group_people[i];
+        if (sum > 4) {
+            ret += 1;
+            sum = 0;
+        } else if (4 == sum) {
+            ret += 1;
+            ++ i;
+            sum = 0;
+        } else {
+            ++ i;
+        }
+    }
+    cout << ret << endl;
+    return 0;
 }
