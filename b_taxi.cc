@@ -41,17 +41,18 @@ int main(int argc, char *argv[])
 	else if (4 == input)
 	    ++num4;
     }
-
+    int left_num1 = num1;
     val += num4;
     val += num3;
-    val += num2 % 2 ? (num2 / 2 + 1) : (num2 / 2);
-    if (num1 > num3) {
-	int left_num1 = num1 - num3;
-	if (num2 % 2)
-	    val += (left_num1 - 2) / 4;
-	else
-	    val += (left_num1 % 4) ? left_num1 / 4 + 1 : left_num1 / 4;
+    left_num1 -= num3;
+    if (left_num1 > 0) {
+	if (num2 % 2) {
+	    left_num1 -= 2;
+	} 
     }
+    val += num2 % 2 ? num2 / 2 + 1 : num2 / 2;
+    if (left_num1 > 0)
+	val += (left_num1 % 4) ? left_num1 / 4 + 1 : left_num1 / 4;
     cout << val << endl;
     return 0;
 }
