@@ -38,7 +38,18 @@ int main(int argc, char* argv[]) {
         stringstream ss;
 	ss << str;
 	ss >> val;
-	if (0 == val % 4 || 0 == val % 7) 
+	if ( 0 == val % 4 || 
+             0 == val % 7 || 
+             0 == val % 47 ||
+             0 == val % 74 || 
+             0 == val % 44 || 
+             0 == val % 447 ||
+             0 == val % 474 || 
+             0 == val % 744 || 
+             0 == val % 477 ||
+             0 == val % 747 || 
+             0 == val % 774 
+         ) 
             cout << "YES" << endl;
         else
             cout << "NO" << endl;
