@@ -31,12 +31,15 @@ int main(int argc, char* argv[]) {
     if (1 == k || 1 == l || 1 == m || 1 == n)
         ++ count;
     for(int i = 2; i <= d; ++ i) {
-        if(0 == (i - 1) % k ||
-	   0 == (i - 1) % l ||
-           0 == (i - 1) % m || 
-	   0 == (i - 1) % n)
+        if(0 == i % k ||
+	   0 == i % l ||
+           0 == i % m ||
+	   0 == i % n) {
+            cout << i << endl;
             ++ count; 
+        }
     }
+    cout << "------>" << endl;
     cout << count << endl;
     return 0;
 }
