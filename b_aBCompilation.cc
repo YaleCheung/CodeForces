@@ -16,48 +16,49 @@
  * =====================================================================================
  */
 #include <iostream>
-#include <set>
+#include <map>
 using namespace std;
 
 int main(int argc, char* argv[]) {
     int n;
     cin >> n;
-    multiset<int> first;
-    multiset<int> second;
-    multiset<int> third;
+    map<int, int> first;
+    map<int, int> second;
+    map<int, int> third;
     for(int i = 0; i < n; ++ i) {
         int val = 0;
 	cin >> val;
-        first.insert(val);
+        ++ first[val];
     }
     for(int i = 0; i < n - 1; ++ i) {
         int val = 0;
 	cin >> val;
-        second.insert(val);
+        ++ second[val];
     }
     for(int i = 0; i < n - 2; ++ i) {
         int val = 0;
 	cin >> val;
-        third.insert(val);	
+        ++ third[val];
     }
     for(auto iter = first.begin(); iter != first.end(); ++ iter) {
-        if (second.count(*iter) >= first.count(*iter))
+        if (second.count(iter->first) && 
+                second[iter->first] >= iter->second)
             continue;
 	else {
-            auto iter = 
-            first.erase(*iter); 
-            cout << *iter << " "; 
+            -- iter->second; 
+            cout << iter->first << " "; 
         }
     }
     cout << endl;
 
     for(auto iter = second.begin(); iter != second.end(); ++ iter) {
-        if (third.count(*iter) >= second.count(*iter))
+        if (third.count(iter->first) && 
+                third[iter->first] >= iter->second)
             continue;
 	else {
-            second.erase(*iter);
-            cout << *iter << " ";
-        } 
+            -- iter->second; 
+            cout << iter->first << " "; 
+        }
     }
     cout << endl;
     return 0;
