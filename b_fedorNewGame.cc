@@ -43,6 +43,6 @@ int main(int argc, char* argv[]) {
 	if (diff <= k)
             ++ ret;
     }
-    cout << ret << endl;
+    cout << ret * 100 << endl;
     return 0;
 }
