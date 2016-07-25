@@ -24,10 +24,17 @@ int main(int argc, char* argv[]) {
         int num = -1;
         for(int j = 1; j <= 2 * n + 1; ++ j) {
             if (j > n + 1 - i && j <= n + 1) {
-	        std::cout << ++ num << ' ';
-            } else if (j > n + 1 && j < n + i + 1) 
-                std::cout << -- num << ' ';
-            else 
+	        std::cout << ++ num;
+                if (j != n + 1) 
+                    std::cout << " ";
+            } else if (j > n + 1 && j < n + i + 1) {
+                if (j == n + 2)
+                    std::cout << " ";
+                std::cout << -- num;
+                if (j != n + i)
+                    std::cout << " ";
+            }
+            else if (j < n + 1)
                 std::cout << "  ";
 	}
 	std::cout << std::endl;
@@ -36,11 +43,18 @@ int main(int argc, char* argv[]) {
     for(int i = 1; i <=  n; ++ i) {
         int num = -1;
         for(int j = 1; j <= 2 * n + 1; ++ j) {
-            if (j > i && j <= n + 1) 
-                std::cout << ++ num << ' ';
-            else if (j <= 2 * n + 1 - i && j > n + 1)
-                std::cout << -- num << ' ';
-            else 
+            if (j > i && j <= n + 1) {
+                std::cout << ++ num;
+                if (j != n + 1)
+                    std::cout << " ";
+            }
+            else if (j <= 2 * n + 1 - i && j > n + 1) {
+                if (j == n + 2)
+                    std::cout << " ";
+                std::cout << -- num;
+                if (j != 2 * n + 1 - i)
+                    std::cout << " ";
+            } else if (j < n + 1)
                 std::cout << "  ";
         }
         std::cout << std::endl;
