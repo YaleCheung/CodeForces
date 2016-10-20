@@ -17,52 +17,52 @@
  */
 
 #include <iostream>
-#include <queue>
 #include <assert.h>
+#include <queue>
 using std::cout;
 using std::cin;
 using std::endl;
 using std::queue;
 
 // find the items; bfs;
-int two_buttons(int m, int n) {
+void two_buttons(int m, int n) {
     queue<int> num_queue;
     num_queue.push(n);
-    int last_line = 0;
     int level = 0;
     bool find = false;
     while(!find) {
         ++ level;
-        for(auto iter = num_queue.begin(); iter != num_queue.end(); ++ iter) {
-            // process odd
-            ++ last_line;
-            auto num = *iter;
-            int left = num << 2;
+        cout << "level "  << level << endl;
+        int last_line = num_queue.size();
+        for(int i = 0; i < last_line; ++ i) {
+            // process odd number;
+            auto num = num_queue.front();
+            int left = num << 1;
+            cout << left << ' ' << endl;
             if (left == m) {
-                cout << level << '\n';
+                cout << "result " << level << endl;
                 find = true; 
                 break;
             }
-            num_queue.push(num);
+            num_queue.push(left);
 
             int right = -- num;
+            cout << right << ' ' << endl;
             if (right == m) {
-                cout << level << '\n';
+                cout << "result " << level << endl;
                 find = true;
                 break;
             }
-            num_queue.push(num);
+            num_queue.push(right);
+            
+            // delete the node;
+            num_queue.pop();
         }
         if (find)
             break;
-        for(int i = 0; i < last_line; ++ i) 
-            num_queue.pop();
-        last_line = 0;
     }
-    cout << endl;
 }
 int main(int argc, char* argv[]) {
-    assert(2 == argc);
     int n, m;
     cin >> n >> m;
     two_buttons(m ,n);
