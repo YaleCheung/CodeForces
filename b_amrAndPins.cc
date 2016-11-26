@@ -24,15 +24,11 @@ using std::cout;
 int main(int argc, char* argv[]) {
     int radius, x, y, x1, y1;
     std::cin >> radius >> x >> y >> x1 >> y1;
-    float dis = sqrt(pow(x1 - x, 2) + pow(y1 - y, 2));
-    int step = 0;
-    while(dis >= 2 * radius) {
-        dis -= 2 * radius;
-        ++ step;
-    }
-    if (dis < radius || fabs(dis - radius) < 0.000001) {// on the circle
-        std::cout << step << std::endl;
-    } else 
-        std::cout << ++ step << std::endl;
+    double dis = sqrt(pow(x1 - x, 2) + pow(y1 - y, 2));
+    int d = 2 * radius;
+    int cnt=dis/d;
+    if(cnt*d<dis)
+        cnt++;
+    cout << cnt << '\n';
     return 0;
 }
