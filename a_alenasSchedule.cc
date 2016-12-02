@@ -18,24 +18,6 @@
 #include <iostream>
 using namespace std;
 
-int main(int argc, char* argv[]) {
-    int lesson_num = 0;
-    cin >> lesson_num;
-    int lesson_order = 0;
-    int lesson;
-    int pre_empty = 0;
-    int ret = 0;
-    while(lesson_order < lesson_num) {
-        cin >> lesson;
-        if(0 == lesson) {
-            ++ pre_empty;
-        } else {
-            if (pre_empty == 1)
-                ++ ret;
-            ret ++;
-            pre_empty = 0;
-        }
-    }
-    cout << ret << endl;
-    return 0;
+class Solution {
+
 }
