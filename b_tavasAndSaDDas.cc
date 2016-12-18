@@ -31,7 +31,7 @@ auto solution(string&& str) -> void {
     }
     // find the first '7' and calculate the variance 
     size_t pos = 0;
-    while(pos < size && str.find('7', pos) != string::npos) {
+    while((pos = str.find('7', pos)) != string::npos) {
         int left = size - pos - 1;
         if (left >= 0)
             ret += static_cast<int>(pow(2, left));
