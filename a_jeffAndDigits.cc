@@ -20,14 +20,7 @@
 using namespace std;
 
 
-auto solution (string input) -> void {
-    int num_0;
-    int num_5;
-    for(auto c : input) {
-        if (c == '0')
-            ++ num_0;
-        else ++ num_5;
-    }
+auto solution (int num_0, int num_5) -> void {
     string ret;
     if (num_0 < 1) {
         cout << "-1" << endl;
@@ -49,10 +42,14 @@ int main(int argc, char* arg[]) {
     cin >> size;
     char c;
     string input;
+    int num_0 = 0;
+    int num_5 = 0;
     for(int i = 0; i < size; ++ i) {
         cin >> c;
-        input += c;
+        if (c == '0')
+            ++ num_0;
+        else ++ num_5;
     }
-    solution(input);
+    solution(num_0, num_5);
     return 0;
 }
