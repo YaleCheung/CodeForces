@@ -1,12 +1,12 @@
 /*
  * =====================================================================================
  *
- *       Filename:  a_party.cc
+ *       Filename:  a_valeraAndX.cc
  *
  *    Description:  
  *
  *        Version:  1.0
- *        Created:  12/19/2016 18:04:45
+ *        Created:  12/28/2016 13:57:58
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -16,18 +16,8 @@
  * =====================================================================================
  */
 #include <iostream>
-#include <set>
-#include <vector>
 using namespace std;
 
-auto solution(vector<int> input) -> void { 
-    int ret = input.size();
-    vector<set<int>> sets;
-    for(auto val : input) {
-
-    }
-}
-
-int main(int argc, char* argv[]) {
-
+int main(int arg,char* argv[]) {
+    std::
 }

@@ -1,12 +1,12 @@
 /*
  * =====================================================================================
  *
- *       Filename:  a_dubStep.cc
+ *       Filename:  a_aleraAndX.cc
  *
  *    Description:  
  *
  *        Version:  1.0
- *        Created:  06/28/16 06:06:32
+ *        Created:  12/28/2016 13:51:55
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -16,23 +16,8 @@
  * =====================================================================================
  */
 #include <iostream>
-#include <string>
 using namespace std;
 
 int main(int argc, char* argv[]) {
-    string str;
-    cin >> str;
-    auto size = str.size();
-    string ret;
-    int pre = -1;
-    for(auto i = 0; i < size;) {
-        if ("UWB" == str.substr(i, 3))
-            i += 3;
-        else {
-            if (i != 0)
-                ret += " ";
-        }
-    }
-    cout << ret << endl;
-    return 0;
+
 }
