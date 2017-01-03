@@ -3,27 +3,28 @@
 using namespace std;
 
 auto solution (string str) -> string {
-
-    // find even numbers;
     size_t size = str.size();
-    string ret;
-    for(auto i = 1, times = 0; i < size; ++ i) {
-        char c = str.at(size - i - 1);
-        int num = c - '0';
-        if (0 == num % 2) { // even 
-            string tmp(str);
-            tmp.at(size - i - 1) = tmp.at(size - 1);
-            tmp.at(size - 1) = c;
-            if (0 == times) {
-                ret = tmp;
-            } else {
-                if (tmp > ret)
-                    ret = tmp;
+    // find the first even number; and the last even number;
+    int end_even = -1;
+    for(auto i = 0; i < size; ++ i) {
+        char c = str.at(i);
+        if (0 == (c - '0') % 2) {
+            if (c < str.at(size -1)){
+                str.at(i) = str.at(size - 1);
+                str.at(size - 1) = c;
+                return str;
             }
-            ++ times;
+            end_even = i;
         }
     }
-    return ret.size() ? ret : "-1";
+    if (end_even == -1)
+        return "-1";
+    else {
+        char c = str.at(end_even);
+        str.at(end_even) = str.at(size - 1);
+        str.at(size - 1) = c;
+        return str;
+    }
 }
 
 int main(int argc, char* argv[]) {
@@ -31,5 +32,4 @@ int main(int argc, char* argv[]) {
     cin >> input;
     cout << solution(input) << endl;
     return 0;
-    //"is this wrong";
 }
