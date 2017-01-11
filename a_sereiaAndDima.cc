@@ -5,11 +5,11 @@ using namespace std;
 
 auto solution (vector<int> ivec, int count) -> tuple<int, int> {
     auto iter_begin = ivec.begin();
-    auto iter_end = ivec.end() - 1;
+    auto iter_end = ivec.end();
     auto sereja_sum = 0;
     auto dima_sum = 0;
     auto order = 1;
-    while(iter_begin != iter_end + 1) {
+    while(iter_begin != iter_end) {
         if (order % 2) {
             if (*iter_begin > *iter_end) {
                 sereja_sum += *iter_begin;
