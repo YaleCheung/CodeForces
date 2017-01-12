@@ -17,7 +17,8 @@ auto solution(const map<int, int>& length_hash, string answer, int failure_times
             valid_all_key += hash_val;
     }
     size_t valid_key = valid_all_key - length_hash.at(ans_size);
-    return {(valid_key - 1) / failure_times * 5 + valid_key + 1, (valid_all_key - same_count) / failure_times * 5 + valid_all_key - same_count + 1};
+    //cout << valid_all_key << " " << valid_key << "\n";
+    return {(valid_key) / failure_times * 5 + valid_key + 1, (valid_all_key - same_count) / failure_times * 5 + valid_all_key - same_count + 1};
 }
 
 int main(int argc, char* argv[]) {
