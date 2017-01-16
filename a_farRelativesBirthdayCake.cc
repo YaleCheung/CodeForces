@@ -1,9 +1,10 @@
 #include <iostream>
 #include <array>
-using array = std::array;
+#include <vector>
+using namespace std;
 
 
-auto permutation(int k, int n) -> void {
+decltype(auto) permutation(int k, int n){
     if (k > n / 2)
         k = n - k;
     int base = 1; 
@@ -15,8 +16,7 @@ auto permutation(int k, int n) -> void {
     return base / factors;
 }
 
-template<uint32_t rows, uint32_t columns>
-decltype(auto) solution (array<array<char, columns>, rows>& input){
+decltype(auto) solution (const vector<vector<char>>& input, int rows, int columns){
     int k = 2;
     int horizon_ret = 0;
     for(int i = 0; i < rows; ++ i) {
@@ -43,9 +43,9 @@ decltype(auto) solution (array<array<char, columns>, rows>& input){
 int main(int argc, char* argv[]) {
     int count;
     cin >> count;
-    const rows = count;
-    const columns = count;
-    array<array<char, columns>, rows> matrix;
+    int rows = count;
+    int columns = count;
+    vector<vector<char>> matrix;
     for(int i = 0; i < rows; ++ i) {
         int n = 0;
         for(int j = 0; j < columns; ++ j) {
@@ -54,5 +54,5 @@ int main(int argc, char* argv[]) {
             matrix.at(i).at(j) = c;
         }
     }
-    return solution(matrix);
+    return solution(matrix, count, count);
 }
