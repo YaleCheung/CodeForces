@@ -46,13 +46,16 @@ int main(int argc, char* argv[]) {
     int rows = count;
     int columns = count;
     vector<vector<char>> matrix;
+    matrix.reserve(rows);
     for(int i = 0; i < rows; ++ i) {
-        int n = 0;
+        vector<char> cvec;
         for(int j = 0; j < columns; ++ j) {
             char c;
             cin >> c;
-            matrix.at(i).at(j) = c;
+            cvec.emplace_back(c);
         }
+        matrix.emplace_back(cvec);
     }
-    return solution(matrix, count, count);
+    cout << solution(matrix, count, count) << endl;
+    return 0;
 }
