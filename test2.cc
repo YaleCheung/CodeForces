@@ -3,8 +3,8 @@
 #include <map>
 
 long n, m;
-std::vector<long> hasCat(n + 1, 0);
-std::vector<long> visited(n + 1, 0);
+std::vector<long> hasCat;
+std::vector<long> visited;
 std::map<long, std::vector<long> > tree;
 
 long dfs(long vertex, long catsBefore){

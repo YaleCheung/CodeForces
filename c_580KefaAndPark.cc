@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
     has_cat.resize(vertex_num + 1);
 
     auto cat_num = 0;
-    for(auto i = 0; i < vertex_num; ++ i) {
+    for(auto i = 1; i <= vertex_num; ++ i) {
         cin >> cat_num;
         has_cat.at(i) = ((1 == cat_num) ? true : false);
     }
@@ -60,6 +60,6 @@ int main(int argc, char* argv[]) {
         graph[pre_node].push_back(post_node);
         graph[post_node].push_back(pre_node);
     }
-    cout << dfs(1,0) << '\n';
+    cout << dfs(1,0) ;
     return 0;
 }
