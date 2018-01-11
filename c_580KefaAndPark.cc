@@ -38,8 +38,8 @@ int main(int argc, char* argv[]) {
     auto vertex_num = 0;
     cin >> vertex_num >> limit;
     
-    visit.reserve(vertex_num);
-    has_cat.reserve(vertex_num);
+    visit.resize(vertex_num + 1);
+    has_cat.resize(vertex_num + 1);
 
     auto cat_num = 0;
     for(auto i = 0; i < vertex_num; ++ i) {
@@ -48,7 +48,8 @@ int main(int argc, char* argv[]) {
     }
     auto pre_node = 0; 
     auto post_node = 0;
-    while (cin >> pre_node >> post_node) {
+    for(auto i = 0; i < vertex_num - 1; ++ i) {
+        cin >> pre_node >> post_node;
         if(! graph.count(pre_node)) {
             graph[pre_node] = vector<int>();
         } 
@@ -59,5 +60,6 @@ int main(int argc, char* argv[]) {
         graph[pre_node].push_back(post_node);
         graph[post_node].push_back(pre_node);
     }
+    cout << dfs(1,0) << '\n';
     return 0;
 }
