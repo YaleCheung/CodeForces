@@ -60,6 +60,9 @@ int main(int argc, char* argv[]) {
         graph[pre_node].push_back(post_node);
         graph[post_node].push_back(pre_node);
     }
+    for(auto ele : graph) {
+        cout << ele.first << " " << ele.second << '\n';
+    }
     cout << dfs(1,0) << '\n';
     return 0;
 }

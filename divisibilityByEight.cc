@@ -13,6 +13,8 @@ void divisibilityHash(bool hash[]) {
     for(int i = 0; i <1000; ++ i) {
         if (0 == i % 8)
             hash[i] = true;
+        else 
+            hash[i] = false;
     }
 }
 
@@ -22,6 +24,5 @@ auto divisibilityByEight(const string& str) -> pair<bool, string> {
 
     for(auto c : str) 
         ++ hash[c - '0'];
-
+   
 }
-
