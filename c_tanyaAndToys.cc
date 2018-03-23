@@ -10,7 +10,8 @@ using Toys = std::vector<IDs>;
 using Ret = unsigned long long;
 
 constexpr IDs limit{1000000000 + 2};
-auto solution(Money total_money, Toys& toys) -> Ret {
+auto solution(Money total_money, Toys& toys) -> Toys {
+    Toys ret_vec;
     sort(toys.begin(), toys.end());
     IDs toy_pos = 0;
     Ret ret = 0;
@@ -19,14 +20,15 @@ auto solution(Money total_money, Toys& toys) -> Ret {
         if(i != toys.at(toy_pos))  {
             costed_money += i;
             if (costed_money <= total_money) {
+                ret_vec.push_back(i);
                 ++ ret;
             }
-        } else  {
+        } else {
             if (toy_pos < toys.size() - 1)
                 ++ toy_pos;
         }
     }
-    return ret;
+    return ret_vec;
 }
 
 int main(int argc, char* argv[]) {
@@ -39,6 +41,10 @@ int main(int argc, char* argv[]) {
         cin >> id;
         toys.at(i) = id;
     }
-    std::cout << solution(total_money, toys) << '\n';
+    auto ret = solution(total_money, toys);
+
+    cout << ret.size() << '\n';
+    for(auto IDs : ret) 
+        cout << IDs << ' ';
     return 0;
 }
